@@ -8,24 +8,24 @@ from DataAnalyzer import dataAnalyzer
 class control:
     def __init__(self,data):
         self.df_orignal=loader.loader_file(f'../data/{data}')
-        self.df_copy= self.df_orignal
+
 
     def control(self):
-        self.research_control()
-        self.df_copy = self.clean_df()
+        data=self.research_control()
+        clean_df = self.clean_df()
+
+        self.load_files(data,clean_df)
 
     def research_control(self):
-        count_0_1=dataAnalyzer.count_1_0(self.df_copy)
-        print(count_0_1)
+        count_0_1=dataAnalyzer.count_1_0(self.df_orignal)
 
-        count_0_1_len_words=dataAnalyzer.count_0_1_len_sentence(self.df_copy)
-        print(count_0_1_len_words)
-        count_0_1_find_3_biggest_tweets=dataAnalyzer.count_0_1_find_3_biggest_tweets(self.df_copy)
-        print(count_0_1_find_3_biggest_tweets)
-        most_common_words=dataAnalyzer.most_common_words(self.df_copy)
-        print(most_common_words)
-        count_big_letter=dataAnalyzer.count_big_letter(self.df_copy)
-        print(count_big_letter)
+        count_0_1_len_words=dataAnalyzer.count_0_1_len_sentence(self.df_orignal)
+
+        count_0_1_find_3_biggest_tweets=dataAnalyzer.count_0_1_find_3_biggest_tweets(self.df_orignal)
+
+        most_common_words=dataAnalyzer.most_common_words(self.df_orignal)
+
+        count_big_letter=dataAnalyzer.count_big_letter(self.df_orignal)
 
         dic={"total_tweets":
             {
@@ -35,12 +35,18 @@ class control:
                 "longest_3_tweets":{"antisemtic":count_0_1_find_3_biggest_tweets["1"],"non_antisemtic":count_0_1_find_3_biggest_tweets["0"]},
                 "uppercase_words":{"antisemitic":count_big_letter["1"],"non_antisemitc":count_big_letter["0"]}
         }
-        # print(json.dumps(dic, indent=4))
-        j=json.dumps(dic)
-        print(j)
 
+        return dic
+
+    @staticmethod
+    def load_files(dic,clean_df):
+        j=json.dumps(dic)
+        with open("../results/result.json",'w', encoding='utf-8') as f:
+             json.dump(dic, f, ensure_ascii=False, indent=4)
+
+        clean_df.to_csv("../results/tweets_dataset_cleaned.csv", sep='\t', encoding='utf-8')
     def clean_df(self):
-        return clean.clean_columns(self.df_copy)
+        return clean.clean_columns(self.df_orignal)
 
 
 
