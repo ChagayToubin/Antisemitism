@@ -47,9 +47,7 @@ class dataAnalyzer:
             if len(i) > len(most_big_tweet0[0]):
                 most_big_tweet0[0] = i
                 most_big_tweet0 = sorted(most_big_tweet0, key=len)
-        # print()
-        # for i in most_big_tweet0:
-        #     print(len(i))
+
         return {"1":most_big_tweet1,"0":most_big_tweet0}
 
     @staticmethod
@@ -74,6 +72,7 @@ class dataAnalyzer:
         all_text1=''.join(df_1["Text"])
 
         upper_words_count_1=sum(1 for word in all_text1.split() if word.isupper())
+
         mesk0 = df["Biased"] == 0
         df_0 = df[mesk0]
         all_text0 = ''.join(df_0["Text"])

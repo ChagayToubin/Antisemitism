@@ -33,7 +33,7 @@ class control:
                 "average_length":{"antisemitic":count_0_1_len_words["1"],"non_antisemtic":count_0_1_len_words["0"],"total":count_0_1_len_words["total"]},
                 "common_words":{"total":most_common_words},
                 "longest_3_tweets":{"antisemtic":count_0_1_find_3_biggest_tweets["1"],"non_antisemtic":count_0_1_find_3_biggest_tweets["0"]},
-                "uppercase_words":{"antisemitic":count_big_letter["1"],"non_antisemitc":count_big_letter["0"]}
+                "uppercase_words":{"antisemitic":count_big_letter["1"],"non_antisemitc":count_big_letter["0"],"total":count_big_letter["0"]+count_big_letter["1"]}
         }
 
         return dic
