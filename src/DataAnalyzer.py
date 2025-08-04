@@ -1,5 +1,5 @@
-from itertools import count
 
+#    Receives a request for analysis before the judges and sends the result.
 
 class dataAnalyzer:
     @staticmethod

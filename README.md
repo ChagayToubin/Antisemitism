@@ -1,4 +1,6 @@
 -------Antisemitism-project--------------
+
+
 Clear:
     Cleans the table as required.
 
@@ -13,7 +15,6 @@ Loader:
 
 main:
     starts it all
-#################################
     
     
     
