@@ -54,8 +54,34 @@ class dataAnalyzer:
 
     @staticmethod
     def most_common_words(df):
+        dic={}
+        for i in df["Text"]:
+            words_in_row=i.split()
 
-        return ""
+            for word in words_in_row:
+                if word in dic:
+                    dic[word]+=1
+                else:
+                    dic[word]=1
+
+        dic=sorted(dic.items(), key=lambda x: x[1], reverse=True)[:10]
+        dic=[word for word,count in dic]
+
+        return dic
+    @staticmethod
+    def count_big_letter(df):
+        mesk1=df["Biased"]==1
+        df_1=df[mesk1]
+        all_text1=''.join(df_1["Text"])
+
+        upper_words_count_1=sum(1 for word in all_text1.split() if word.isupper())
+        mesk0 = df["Biased"] == 0
+        df_0 = df[mesk0]
+        all_text0 = ''.join(df_0["Text"])
+        upper_words_count_0 = sum(1 for word in all_text0.split() if word.isupper())
+
+        return {"1":upper_words_count_1,"0":upper_words_count_0}
+
 
 
 

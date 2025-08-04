@@ -11,6 +11,7 @@ class control:
 
     def control(self):
         self.research_control()
+        self.clean_df()
         # self.df_copy=clean.clean_columns(self.df_copy)
 
 
@@ -23,8 +24,16 @@ class control:
         # print(count_0_1_len_words)
         # count_0_1_find_3_biggest_tweets=dataAnalyzer.count_0_1_find_3_biggest_tweets(self.df_copy)
         # print(count_0_1_find_3_biggest_tweets)
-        most_common_words=dataAnalyzer.most_common_words(self.df_copy)
-        print(most_common_words)
+        # most_common_words=dataAnalyzer.most_common_words(self.df_copy)
+        # print(most_common_words)
+        # count_big_letter=dataAnalyzer.count_big_letter(self.df_copy)
+        # print(count_big_letter)
+        print()
+    def clean_df(self):
+        clean.clean_columns(self.df_copy)
+
+
+
 
 
 
