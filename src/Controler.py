@@ -41,13 +41,10 @@ class control:
     @staticmethod
     def load_files(dic,clean_df):
         j=json.dumps(dic)
-        with open("../results/result.json",'w') as file:
-            file.write(j)
+        with open("../results/result.json",'w', encoding='utf-8') as f:
+             json.dump(dic, f, ensure_ascii=False, indent=4)
 
-        with open("../results/tweets_dataset_cleaned.csv","w") as file:
-
-            file.write(str(clean_df.to_csv))
-
+        clean_df.to_csv("../results/tweets_dataset_cleaned.csv", sep='\t', encoding='utf-8')
     def clean_df(self):
         return clean.clean_columns(self.df_orignal)
 
