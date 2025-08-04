@@ -4,7 +4,7 @@ import json
 from Loader import loader
 from Clean import clean
 from DataAnalyzer import dataAnalyzer
-
+# Initializes everything and is responsible for sending everything to the appropriate processor.
 class control:
     def __init__(self,data):
         self.df_orignal=loader.loader_file(f'../data/{data}')

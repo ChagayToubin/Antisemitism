@@ -1,6 +1,10 @@
 
 import pandas as pd
 pd.options.mode.copy_on_write = True
+
+
+# Cleans the table as required.
+
 class clean:
     @staticmethod
     def clean_columns(df):
