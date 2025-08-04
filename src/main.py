@@ -1,5 +1,5 @@
 from Controler import control
 
 
-mision=control("tweets_dataset.csv")
-mision.control()
+controler=control("tweets_dataset.csv")
+controler.control_all()

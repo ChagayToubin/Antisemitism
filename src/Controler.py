@@ -10,7 +10,7 @@ class control:
         self.df_orignal=loader.loader_file(f'../data/{data}')
 
 
-    def control(self):
+    def control_all(self):
         data=self.research_control()
         clean_df = self.clean_df()
 
