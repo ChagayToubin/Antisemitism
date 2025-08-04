@@ -43,9 +43,10 @@ class control:
         j=json.dumps(dic)
         with open("../results/result.json",'w') as file:
             file.write(j)
+
         with open("../results/tweets_dataset_cleaned.csv","w") as file:
 
-            file.write(str(clean_df))
+            file.write(str(clean_df.to_csv))
 
     def clean_df(self):
         return clean.clean_columns(self.df_orignal)
