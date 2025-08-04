@@ -12,8 +12,6 @@ class dataAnalyzer:
 
         unspecified=len(df)-count1-count0
 
-
-
         return {"1":int(count1),"0":count0,"unspecified":unspecified}
 
     @staticmethod
@@ -37,14 +35,9 @@ class dataAnalyzer:
         most_big_tweet1=["","",""]
 
         for i in df[mesk_1]['Text']:
-            # print(len(i),len(most_big_tweet[0]))
-
             if len(i) > len(most_big_tweet1[0]):
                 most_big_tweet1[0]=i
                 most_big_tweet1=sorted(most_big_tweet1,key=len)
-
-        # for i in most_big_tweet1:
-        #     print(len(i))
 
         mesk_0 = df['Biased'] == 0
         most_big_tweet0 = ["", "", ""]
@@ -64,7 +57,6 @@ class dataAnalyzer:
         dic={}
         for i in df["Text"]:
             words_in_row=i.split()
-
             for word in words_in_row:
                 if word in dic:
                     dic[word]+=1
