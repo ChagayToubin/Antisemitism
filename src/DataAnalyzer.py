@@ -1,28 +1,35 @@
+from itertools import count
+
+
 class dataAnalyzer:
     @staticmethod
     def count_1_0(df):
         mesk=(df['Biased']==1)
-        count=(len(df[mesk]))
+        count1=(len(df[mesk]))
 
-        return {"1":int(count),"0":int(len(df)-count)}
+        mesk = (df['Biased'] == 0)
+        count0 = (len(df[mesk]))
+
+        unspecified=len(df)-count1-count0
+
+
+
+        return {"1":int(count1),"0":count0,"unspecified":unspecified}
 
     @staticmethod
     def count_0_1_len_sentence(df):
         mesk_1=df['Biased']==1
         df_1=df[mesk_1]
         count1=0
-
         for i in df_1['Text']:
             count1+=len(i.split())
 
         mesk_0 = df['Biased'] == 0
         df_0 = df[mesk_0]
         count0 = 0
-
         for i in df_0['Text']:
             count0 += len(i.split())
-
-        return {"1":count1/len(df_1),"0":count0/len(df_0)}
+        return {"1":count1/len(df_1),"0":count0/len(df_0),"total":(count0+count1)/len(df)}
 
     @staticmethod
     def count_0_1_find_3_biggest_tweets(df):
