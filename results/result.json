@@ -38,6 +38,7 @@
     },
     "uppercase_words": {
         "antisemitic": 950,
-        "non_antisemitc": 4549
+        "non_antisemitc": 4549,
+        "total": 5499
     }
 }
