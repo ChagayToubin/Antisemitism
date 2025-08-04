@@ -1,9 +1,9 @@
+import pandas as pd
 class clean:
     @staticmethod
     def clean_columns(df):
-        lst=[]
 
-        for i in df:
-            lst.append(i)
-
+        df=df[["Text","Biased"]]
+        df=df["Text"].str.lower()
+        print(df)
 
